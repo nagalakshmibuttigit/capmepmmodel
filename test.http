@@ -1,0 +1,31 @@
+### 
+http://localhost:4004/odata/v4/CatalogService
+
+### loading metadata
+http://localhost:4004/odata/v4/CatalogService/$metadata
+
+###
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+
+###
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2
+
+### load the data by chunk by chunk 
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2&$skip=6
+
+
+###
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=salaryAmount ge 65000
+
+
+### $count
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+
+
+### get single request by key id
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/EMP001
+
+
+### Get all POs
+
+### Get the PO and its Items data together - Association 
