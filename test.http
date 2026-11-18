@@ -13,7 +13,6 @@ http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2
 ### load the data by chunk by chunk 
 http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2&$skip=6
 
-
 ###
 http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=salaryAmount ge 65000
 
@@ -27,5 +26,58 @@ http://localhost:4004/odata/v4/CatalogService/EmployeeSet/EMP001
 
 
 ### Get all POs
+http://localhost:4004/odata/v4/CatalogService/POs
+
+
+### Get single PO
+http://localhost:4004/odata/v4/CatalogService/POs/PO00000000000000000000000000000001
 
 ### Get the PO and its Items data together - Association 
+http://localhost:4004/odata/v4/CatalogService/POs/PO00000000000000000000000000000001?$expand=Items,PARTNER_GUID
+
+
+###
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+
+{
+      "ID": "EMP13",
+      "nameFirst": "Nachi",
+      "nameMiddle": "K",
+      "nameLast": "Abhayankar",
+      "nameInitials": "RKR",
+      "sex": "F",
+      "language": "T",
+      "phoneNumber": "9876543210",
+      "email": "nachiabayankar@example.com",
+      "loginName": "NACHIABHI",
+      "Currency_code": "INR",
+      "salaryAmount": "50000.00",
+      "accountNumber": "98765432",
+      "bankId": "IC2313",
+      "bankName": "ICICI Bank"
+}
+
+
+###
+PATCH http://localhost:4004/odata/v4/CatalogService/EmployeeSet/EMP13
+Content-Type: application/json
+
+{
+    "salaryAmount" : "100000.00"
+}
+
+
+###
+DELETE http://localhost:4004/odata/v4/CatalogService/EmployeeSet/EMP010
+
+
+
+###
+POST http://localhost:4004/odata/v4/CatalogService/POs/PO00000000000000000000000000000001/boost
+Content-Type: application/json
+
+{}
+
+### get Largest PO
+http://localhost:4004/odata/v4/CatalogService/POs/PO00000000000000000000000000000001/getLargestPo()

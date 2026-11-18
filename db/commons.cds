@@ -21,7 +21,7 @@ aspect Amount:{
 
 }
 
-type PhoneNumber : String(30)@assert.format : '^(?:\+\d{1,3})?[-.\s]?\(?\d{1,4}\)?[--\s]?\d{1,12}$';
+type PhoneNumber: String(30) @assert.format: '^[0-9]{10}$';
 type EmailAddress:String(80)@assert.format: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
 
 type Guid : String(32);
