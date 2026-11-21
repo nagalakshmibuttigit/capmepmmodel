@@ -52,7 +52,7 @@ Content-Type: application/json
       "email": "nachiabayankar@example.com",
       "loginName": "NACHIABHI",
       "Currency_code": "INR",
-      "salaryAmount": "50000.00",
+      "salaryAmount": "50000000.00",
       "accountNumber": "98765432",
       "bankId": "IC2313",
       "bankName": "ICICI Bank"
@@ -64,7 +64,7 @@ PATCH http://localhost:4004/odata/v4/CatalogService/EmployeeSet/EMP13
 Content-Type: application/json
 
 {
-    "salaryAmount" : "100000.00"
+    "salaryAmount" : "1000000.00"
 }
 
 
@@ -81,3 +81,11 @@ Content-Type: application/json
 
 ### get Largest PO
 http://localhost:4004/odata/v4/CatalogService/POs/PO00000000000000000000000000000001/getLargestPo()
+
+
+### custom handler 
+http://localhost:4004/odata/v4/myServiceone/ReadEmployeeSrv
+
+
+### accessing employee set using odata v2 after installing adapter
+http://localhost:4004/v2/odata/v4/CatalogService/EmployeeSet

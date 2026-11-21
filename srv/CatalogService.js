@@ -1,5 +1,5 @@
 module.exports = cds.service.impl(async function(){
-    const {POs} = this.entities;
+    const {POs, EmployeeSet} = this.entities;
 
     // action bound
     this.on('boost', async(req)=>{
@@ -20,6 +20,12 @@ module.exports = cds.service.impl(async function(){
             return recordData;
         }catch(error){
             return "Error"+ error.toString();
+        }
+    });
+
+    this.before(['CREATE', 'PATCH'], EmployeeSet, (req)=>{
+        if(parseFloat(req.data.salaryAmount) >=1000000 ){
+            req.error(500, "We cannot support salary over a million");
         }
     })
 

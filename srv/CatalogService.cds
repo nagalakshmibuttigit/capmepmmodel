@@ -7,7 +7,7 @@ service CatalogService @(path: 'CatalogService'){
     entity BusinessPartnerSet as projection on master.businesspartner;
     entity AddressSet as projection on master.address;
     entity ProductSet as projection on master.product;
-    @readonly
+    // @readonly
     entity EmployeeSet as projection on master.employees;
 
     entity POs as projection on transaction.purchaseorder
